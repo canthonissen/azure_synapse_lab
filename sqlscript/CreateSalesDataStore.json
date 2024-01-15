@@ -1,0 +1,17 @@
+{
+	"name": "CreateSalesDataStore",
+	"properties": {
+		"content": {
+			"query": "DROP EXTERNAL TABLE [SalesData].[FactSales]\nDROP EXTERNAL TABLE [SalesData].[DimCustomer]\nDROP EXTERNAL TABLE [SalesData].[DimProduct]\n\nDROP SCHEMA [SalesData]\n\nDROP EXTERNAL DATA SOURCE sales_datasets\n\nCREATE EXTERNAL DATA SOURCE sales_datasets\nWITH (  LOCATION='https://bucketeer.blob.core.windows.net/salesdata',\n        CREDENTIAL = SasToken )\n\nCREATE SCHEMA [SalesData]\n\nCREATE EXTERNAL TABLE [SalesData].[FactSales](\n\t[ProductID] [int],\n\t[SalesOrderID] [int],\n\t[CustomerID] [int],\n\t[OrderQty] [smallint],\n\t[UnitPrice] [money],\n\t[OrderDate] [datetime],\n\t[TaxAmt] [money],\n    [TotalAmount] [money]\n)\nWITH (\n LOCATION = '/FactSales/',\n    DATA_SOURCE = sales_datasets,  \n    FILE_FORMAT = ParquetFileFormat\n)\n\nCREATE EXTERNAL TABLE [SalesData].[DimCustomer](\n    [CustomerSK] [int],\n\t[CustomerID] [int],\n    [CompanyName] varchar(200),\n\t[SalesPerson] varchar(300)\n)\nWITH (\n LOCATION = '/DimCustomer/',\n    DATA_SOURCE = sales_datasets,  \n    FILE_FORMAT = ParquetFileFormat\n)\n\nCREATE EXTERNAL TABLE [SalesData].[DimProduct](\n    [ProductSK] [int],\n\t[ProductID] [int],\n\t[ProductModelID] [int],\n\t[ProductcategoryID] [int],\n\t[ProductName] varchar(50),\t\n\t[ProductModelName] varchar(50),\n\t[ProductCategoryName] varchar(50)\n)\nWITH (\n LOCATION = '/DimProduct/',\n    DATA_SOURCE = sales_datasets,  \n    FILE_FORMAT = ParquetFileFormat\n)\n\nSELECT * FROM [SalesData].[FactSales]\n\nSELECT * FROM [SalesData].[DimCustomer]\n\nSELECT * FROM [SalesData].[DimProduct]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "appdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

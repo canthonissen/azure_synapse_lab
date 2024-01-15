@@ -1,0 +1,22 @@
+{
+	"name": "DestinationDataset_bs6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Buckteer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "products.parquet",
+				"folderPath": "product_table",
+				"fileSystem": "appdb-tables-parquet"
+			},
+			"compressionCodec": "none"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
