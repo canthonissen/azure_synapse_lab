@@ -1,0 +1,17 @@
+{
+	"name": "DSP-External-CSV",
+	"properties": {
+		"content": {
+			"query": "CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential\nWITH IDENTITY='bucketeer',\nSECRET = 'droQ538akyWlxgLQvsX5hLdEMfQzNlN1SoprkJc+GGveqVrQpNo309ZDUGrJbqlXBdQq/+sxbqkk+AStF+5l2w=='\n\n\nCREATE EXTERNAL DATA SOURCE log_data_hadoop_csv\nWITH (  LOCATION='abfss://csv@bucketeer.dfs.core.windows.net',\n        CREDENTIAL = AzureStorageCredential,\n        TYPE = HADOOP )\n    \nCREATE EXTERNAL FILE FORMAT TextFileFormat WITH(\n    FORMAT_TYPE = DELIMITEDTEXT,\n    FORMAT_OPTIONS(\n        FIELD_TERMINATOR=',',\n        FIRST_ROW = 2\n    )\n)\n\nCREATE EXTERNAL TABLE [logdata]\n(\n    [Correlation id] [varchar](200) NULL,\n\t[Operation name] [varchar](200) NULL,\n\t[Status] [varchar](100) NULL,\n\t[Event category] [varchar](100) NULL,\n\t[Level] [varchar](100) NULL,\n\t[Time] [datetime] NULL,\n\t[Subscription] [varchar](200) NULL,\n\t[Event initiated by] [varchar](1000) NULL,\n\t[Resource type] [varchar](1000) NULL,\n\t[Resource group] [varchar](1000) NULL,\n    [Resource] [varchar](2000) NULL)\nWITH (\n LOCATION = '/Log.csv',\n    DATA_SOURCE = log_data,  \n    FILE_FORMAT = TextFileFormat\n)\n\nSELECT * FROM [logdata]\n\nDROP EXTERNAL TABLE [logdata]\nDROP EXTERNAL DATA SOURCE log_data",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "appdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

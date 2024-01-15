@@ -1,0 +1,17 @@
+{
+	"name": "External-product-table-parquet",
+	"properties": {
+		"content": {
+			"query": "CREATE EXTERNAL DATA SOURCE appdb_data_parquet\nWITH (  LOCATION='https://bucketeer.blob.core.windows.net/appdb-tables-parquet',\n        CREDENTIAL = SasToken )\n\n\n\nCREATE EXTERNAL FILE FORMAT ParquetFileForma_NoCompression WITH(\n    FORMAT_TYPE = PARQUET\n)\n\nCREATE EXTERNAL TABLE [product]\n(\n\t[ProductID] int,\n\t[Name] nvarchar(100),\n\t[ProductNumber] nvarchar(100),\n\t[Color] nvarchar(100),\n\t[StandardCost] numeric(19,4),\n\t[ListPrice] numeric(19,4),\n\t[Size] nvarchar(100),\n\t[Weight] numeric(8,2),\n\t[ProductCategoryID] int,\n\t[ProductModelID] int,\n\t[SellStartDate] datetime2(7),\n\t[SellEndDate] datetime2(7),\n\t[DiscontinuedDate] datetime2(7),\n\t[ThumbNailPhoto] varbinary(8000),\n\t[ThumbnailPhotoFileName] nvarchar(100),\n\t[rowguid] nvarchar(100),\n\t[ModifiedDate] datetime2(7)\n\t)\nWITH (\n LOCATION = '/product_table',\n    DATA_SOURCE = appdb_data_parquet,  \n    FILE_FORMAT = ParquetFileForma_NoCompression\n)\n\nSELECT * FROM [product]\n\nDROP EXTERNAL TABLE [product]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "appdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
