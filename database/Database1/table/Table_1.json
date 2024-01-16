@@ -30,8 +30,8 @@
 					"Description": "",
 					"OriginDataTypeName": {
 						"TypeName": "string",
-						"IsNullable": false,
 						"IsComplexType": false,
+						"IsNullable": false,
 						"Length": 256,
 						"Properties": {
 							"HIVE_TYPE_STRING": "string"
@@ -71,7 +71,7 @@
 			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
 			"PrimaryKeys": "Column_1",
 			"spark.sql.sources.provider": "parquet",
-			"sql:IsAppendOnly": false
+			"sql:IsAppendOnly": true
 		},
 		"Retention": 0,
 		"Temporary": false,
