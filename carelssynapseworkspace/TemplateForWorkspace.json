@@ -643,7 +643,8 @@
 								"Description": "",
 								"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
 								"PrimaryKeys": "Column_1",
-								"spark.sql.sources.provider": "parquet"
+								"spark.sql.sources.provider": "parquet",
+								"sql:IsAppendOnly": true
 							},
 							"Retention": 0,
 							"Temporary": false,
