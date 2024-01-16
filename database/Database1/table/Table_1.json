@@ -54,7 +54,7 @@
 				"Provider": "ADLS",
 				"Location": "abfss://@.dfs.core.windows.net/Table_1",
 				"Properties": {
-					"LinkedServiceName": "Buckteer",
+					"LinkedServiceName": "carelssynapseworkspace-WorkspaceDefaultStorage",
 					"LocationSetToDatabaseDefault": true
 				}
 			},

@@ -11,10 +11,10 @@
 		},
 		"Source": {
 			"Provider": "ADLS",
-			"Location": "abfss://datalake1@bucketeer.dfs.core.windows.net/",
+			"Location": "abfss://data@superbucketeer.dfs.core.windows.net/",
 			"Properties": {
 				"FormatType": "parquet",
-				"LinkedServiceName": "Buckteer"
+				"LinkedServiceName": "carelssynapseworkspace-WorkspaceDefaultStorage"
 			}
 		}
 	},
