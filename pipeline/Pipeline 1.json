@@ -75,18 +75,12 @@
 									"Content-Length": {
 										"value": "@length(string(item()))",
 										"type": "Expression"
-									}
+									},
+									"Authorization": "SharedKey PipelineStatus2:droQ538akyWlxgLQvsX5hLdEMfQzNlN1SoprkJc+GGveqVrQpNo309ZDUGrJbqlXBdQq/+sxbqkk+AStF+5l2w=="
 								},
 								"body": {
 									"value": "@item()",
 									"type": "Expression"
-								},
-								"authentication": {
-									"type": "MSI",
-									"resource": {
-										"value": "@pipeline().DataFactory",
-										"type": "Expression"
-									}
 								}
 							}
 						}
