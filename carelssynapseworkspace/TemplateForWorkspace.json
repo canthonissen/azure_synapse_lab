@@ -192,6 +192,30 @@
 								}
 							]
 						}
+					},
+					{
+						"name": "Set variable1",
+						"type": "SetVariable",
+						"dependsOn": [
+							{
+								"activity": "ForEach1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "Temper",
+							"value": {
+								"value": "@variables('ProductNames')",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"policy": {
@@ -199,6 +223,9 @@
 				},
 				"variables": {
 					"ProductNames": {
+						"type": "Array"
+					},
+					"Temper": {
 						"type": "Array"
 					}
 				},
