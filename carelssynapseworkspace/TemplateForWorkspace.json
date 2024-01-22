@@ -203,7 +203,7 @@
 											},
 											"Content_Type": "application/json",
 											"Content-Length": {
-												"value": "@length(item())",
+												"value": "@length(string(item()))",
 												"type": "Expression"
 											}
 										},
