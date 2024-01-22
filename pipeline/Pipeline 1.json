@@ -68,10 +68,7 @@
 								"method": "PUT",
 								"headers": {
 									"Content_Type": "application/json",
-									"Content-Length": {
-										"value": "@length(string(item()))",
-										"type": "Expression"
-									},
+									"Content-Length": "427",
 									"sv": "2022-11-02",
 									"ss": "t",
 									"sp": "rwdlacu",
@@ -82,7 +79,7 @@
 									"srt": "sco"
 								},
 								"body": {
-									"value": "@item()",
+									"value": "{\n  \"Address\":\"Mountain View\",  \n  \"Age\":23,  \n  \"AmountDue\":200.23,  \n  \"CustomerCode@odata.type\":\"Edm.Guid\",  \n  \"CustomerCode\":\"c9da6455-213d-42c9-9a79-3e9149a57833\",  \n  \"CustomerSince@odata.type\":\"Edm.DateTime\",  \n  \"CustomerSince\":\"2008-07-10T00:00:00\",  \n  \"IsActive\":true,  \n  \"NumOfOrders@odata.type\":\"Edm.Int64\",  \n  \"NumOfOrders\":\"255\",  \n  \"PartitionKey\":\"mypartitionkey\",  \n  \"RowKey\":\"myrowkey1\",  \n}",
 									"type": "Expression"
 								}
 							}
