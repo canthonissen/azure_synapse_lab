@@ -1,8 +1,8 @@
 {
-	"name": "SQL script 3",
+	"name": "SQL script 4",
 	"properties": {
 		"content": {
-			"query": "",
+			"query": "SELECT TOP (100) [CustomerSK]\n,[CustomerID]\n,[CompanyName]\n,[SalesPerson]\n FROM [dbo].[DimCo]",
 			"metadata": {
 				"language": "sql"
 			},
