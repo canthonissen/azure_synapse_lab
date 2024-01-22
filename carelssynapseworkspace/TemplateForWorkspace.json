@@ -178,43 +178,49 @@
 							},
 							"activities": [
 								{
-									"name": "Append variable1",
-									"type": "AppendVariable",
+									"name": "StoreInTable",
+									"type": "WebActivity",
 									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
 									"userProperties": [],
 									"typeProperties": {
-										"variableName": "ProductNames",
-										"value": {
-											"value": "@item().Name",
+										"url": "https://bucketeer.table.core.windows.net/PipelineStatus2",
+										"connectVia": {
+											"referenceName": "AutoResolveIntegrationRuntime",
+											"type": "IntegrationRuntimeReference"
+										},
+										"method": "PUT",
+										"headers": {
+											"Date": {
+												"value": "@utcnow()",
+												"type": "Expression"
+											},
+											"Content_Type": "application/json",
+											"Content-Length": {
+												"value": "@length(item())",
+												"type": "Expression"
+											}
+										},
+										"body": {
+											"value": "@item()",
 											"type": "Expression"
+										},
+										"authentication": {
+											"type": "MSI",
+											"resource": {
+												"value": "@pipeline().DataFactory",
+												"type": "Expression"
+											}
 										}
 									}
 								}
 							]
-						}
-					},
-					{
-						"name": "Set variable1",
-						"type": "SetVariable",
-						"dependsOn": [
-							{
-								"activity": "ForEach1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "Temper",
-							"value": {
-								"value": "@variables('ProductNames')",
-								"type": "Expression"
-							}
 						}
 					}
 				],
@@ -232,7 +238,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('workspaceId'), '/datasets/SourceDataset_bs6')]"
+				"[concat(variables('workspaceId'), '/datasets/SourceDataset_bs6')]",
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
 			]
 		},
 		{
