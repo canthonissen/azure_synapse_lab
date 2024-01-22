@@ -195,7 +195,7 @@
 											"referenceName": "AutoResolveIntegrationRuntime",
 											"type": "IntegrationRuntimeReference"
 										},
-										"method": "PUT",
+										"method": "POST",
 										"headers": {
 											"Content_Type": "application/json",
 											"Content-Length": "427",
