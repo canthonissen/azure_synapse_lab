@@ -72,7 +72,10 @@
 										"type": "Expression"
 									},
 									"Content_Type": "application/json",
-									"Content-Length": "@length(item())"
+									"Content-Length": {
+										"value": "@length(string(item()))",
+										"type": "Expression"
+									}
 								},
 								"body": {
 									"value": "@item()",
