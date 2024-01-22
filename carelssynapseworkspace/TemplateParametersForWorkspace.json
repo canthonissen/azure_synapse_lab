@@ -14,6 +14,9 @@
 		"carelssynapseworkspace-WorkspaceDefaultSqlServer_connectionString": {
 			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:carelssynapseworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
 		},
+		"BucketeerTableStorage_connectionString": {
+			"value": ""
+		},
 		"Buckteer_properties_typeProperties_url": {
 			"value": "https://bucketeer.dfs.core.windows.net/"
 		},
