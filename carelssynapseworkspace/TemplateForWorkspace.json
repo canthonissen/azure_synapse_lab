@@ -190,23 +190,18 @@
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"url": "https://bucketeer.table.core.windows.net/PipelineStatus2",
+										"url": "https://bucketeer.table.core.windows.net/?sv=2022-11-02&ss=t&srt=sco&sp=rwdlacu&se=2025-01-23T01:52:02Z&st=2024-01-22T17:52:02Z&spr=https&sig=Z2UDZ8JkRliog1UV6G8byWZhOLYABz73Td4VqyipFos%3D",
 										"connectVia": {
 											"referenceName": "AutoResolveIntegrationRuntime",
 											"type": "IntegrationRuntimeReference"
 										},
 										"method": "PUT",
 										"headers": {
-											"Date": {
-												"value": "@utcnow()",
-												"type": "Expression"
-											},
 											"Content_Type": "application/json",
 											"Content-Length": {
 												"value": "@length(string(item()))",
 												"type": "Expression"
-											},
-											"Authorization": "SharedKey PipelineStatus2:droQ538akyWlxgLQvsX5hLdEMfQzNlN1SoprkJc+GGveqVrQpNo309ZDUGrJbqlXBdQq/+sxbqkk+AStF+5l2w=="
+											}
 										},
 										"body": {
 											"value": "@item()",
