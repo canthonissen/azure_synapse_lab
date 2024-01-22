@@ -1,0 +1,15 @@
+{
+	"name": "PipelineStatusTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "BucketeerTableStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "PipelineStatus"
+		}
+	}
+}
