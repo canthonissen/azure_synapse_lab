@@ -9,7 +9,7 @@
 		"type": "AzureTable",
 		"schema": [],
 		"typeProperties": {
-			"tableName": "PipelineStatus"
+			"tableName": "PipelineStatus2"
 		}
 	}
 }
