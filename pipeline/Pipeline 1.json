@@ -60,7 +60,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"url": "https://bucketeer.table.core.windows.net/?sv=2022-11-02&ss=t&srt=sco&sp=rwdlacu&se=2025-01-23T01:52:02Z&st=2024-01-22T17:52:02Z&spr=https&sig=Z2UDZ8JkRliog1UV6G8byWZhOLYABz73Td4VqyipFos%3D",
+								"url": "https://bucketeer.table.core.windows.net/PipelineStatus2",
 								"connectVia": {
 									"referenceName": "AutoResolveIntegrationRuntime",
 									"type": "IntegrationRuntimeReference"
@@ -71,7 +71,15 @@
 									"Content-Length": {
 										"value": "@length(string(item()))",
 										"type": "Expression"
-									}
+									},
+									"sv": "2022-11-02",
+									"ss": "t",
+									"sp": "rwdlacu",
+									"se": "2025-01-23T01:52:02Z",
+									"st": "2024-01-22T17:52:02Z",
+									"spr": "https",
+									"sig": "Z2UDZ8JkRliog1UV6G8byWZhOLYABz73Td4VqyipFos%3D",
+									"srt": "sco"
 								},
 								"body": {
 									"value": "@item()",
