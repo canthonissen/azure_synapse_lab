@@ -1,0 +1,42 @@
+{
+	"name": "Pipeline 2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://bucketeer.table.core.windows.net/PipelineStatus2",
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					},
+					"method": "PUT",
+					"headers": {
+						"Content_Type": "application/json",
+						"Content-Length": "427",
+						"sv": "2022-11-02",
+						"ss": "t",
+						"sp": "rwdlacu",
+						"se": "2025-01-23T01:52:02Z",
+						"st": "2024-01-22T17:52:02Z",
+						"spr": "https",
+						"sig": "Z2UDZ8JkRliog1UV6G8byWZhOLYABz73Td4VqyipFos%3D",
+						"srt": "sco"
+					},
+					"body": "{\n  \"Address\":\"Mountain View\",  \n  \"Age\":23,  \n  \"AmountDue\":200.23,  \n  \"CustomerCode@odata.type\":\"Edm.Guid\",  \n  \"CustomerCode\":\"c9da6455-213d-42c9-9a79-3e9149a57833\",  \n  \"CustomerSince@odata.type\":\"Edm.DateTime\",  \n  \"CustomerSince\":\"2008-07-10T00:00:00\",  \n  \"IsActive\":true,  \n  \"NumOfOrders@odata.type\":\"Edm.Int64\",  \n  \"NumOfOrders\":\"255\",  \n  \"PartitionKey\":\"mypartitionkey\",  \n  \"RowKey\":\"myrowkey1\",  \n}"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
