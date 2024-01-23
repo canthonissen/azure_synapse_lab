@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "suprecsynapseworkspace"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"BucketeerTableStorage_connectionString": {
+			"value": ""
+		},
+		"Buckteer_accountKey": {
+			"value": ""
+		},
+		"carelssynapseworkspace-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:carelssynapseworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"suprecsynapseworkspace-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:suprecsynapseworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"Buckteer_properties_typeProperties_url": {
+			"value": "https://bucketeer.dfs.core.windows.net/"
+		},
+		"carelssynapseworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://superbucketeer.dfs.core.windows.net"
+		},
+		"suprecsynapseworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://bucketeer.dfs.core.windows.net"
+		}
+	}
+}
