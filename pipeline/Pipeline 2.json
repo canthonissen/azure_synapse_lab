@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": {
-						"value": "@concat('https://','pipeline().parameters.storage_account','.table.core.windows.net/','pipeline().parameters.table_name','()')",
+						"value": "@concat('https://',pipeline().parameters.storage_account,'.table.core.windows.net/',pipeline().parameters.table_name,'()')",
 						"type": "Expression"
 					},
 					"connectVia": {
