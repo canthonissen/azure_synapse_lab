@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": {
-						"value": "@concat('https://',pipeline().parameters.storage_account,'.table.core.windows.net/',pipeline().parameters.table_name,'()')",
+						"value": "@concat('https://',pipeline().parameters.storage_account,'.table.core.windows.net/',pipeline().parameters.table_name, '()?',pipeline().parameters.sas)",
 						"type": "Expression"
 					},
 					"connectVia": {
@@ -25,19 +25,16 @@
 					},
 					"method": "POST",
 					"headers": {
-						"Content_Type": "application/json",
+						"Content-Type": "application/json",
 						"Content-Length": {
 							"value": "@length(string(pipeline().parameters.data_json))",
 							"type": "Expression"
 						},
-						"sv": "2022-11-02",
-						"ss": "t",
-						"sp": "rwdlacu",
-						"se": "2025-01-23T01:52:02Z",
-						"st": "2024-01-22T17:52:02Z",
-						"spr": "https",
-						"sig": "Z2UDZ8JkRliog1UV6G8byWZhOLYABz73Td4VqyipFos=",
-						"srt": "sco"
+						"x-ms-version": "2022-11-02",
+						"x-ms-date": {
+							"value": "@utcnow()",
+							"type": "Expression"
+						}
 					},
 					"body": {
 						"value": "@string(pipeline().parameters.data_json)",
@@ -64,6 +61,10 @@
 					"PartitionKey": "mypartitionkey",
 					"RowKey": "myrowkey"
 				}
+			},
+			"sas": {
+				"type": "string",
+				"defaultValue": "sv=2022-11-02&ss=t&srt=sco&sp=rwdlacu&se=2025-01-23T01%3A52%3A02Z&st=2024-01-22T17%3A52%3A02Z&spr=https&sig=Z2UDZ8JkRliog1UV6G8byWZhOLYABz73Td4VqyipFos="
 			}
 		},
 		"annotations": []
