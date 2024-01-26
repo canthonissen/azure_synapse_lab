@@ -15,7 +15,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://bucketeer.table.core.windows.net/PipelineStatus2",
+					"url": {
+						"value": "@concat('https://','pipeline().parameters.storage_account','.table.core.windows.net/','pipeline().parameters.table_name','()')",
+						"type": "Expression"
+					},
 					"connectVia": {
 						"referenceName": "AutoResolveIntegrationRuntime",
 						"type": "IntegrationRuntimeReference"
@@ -23,7 +26,10 @@
 					"method": "POST",
 					"headers": {
 						"Content_Type": "application/json",
-						"Content-Length": "427",
+						"Content-Length": {
+							"value": "@length(string(pipeline().parameters.data_json))",
+							"type": "Expression"
+						},
 						"sv": "2022-11-02",
 						"ss": "t",
 						"sp": "rwdlacu",
@@ -33,10 +39,27 @@
 						"sig": "Z2UDZ8JkRliog1UV6G8byWZhOLYABz73Td4VqyipFos%3D",
 						"srt": "sco"
 					},
-					"body": "{\n  \"Address\":\"Mountain View\",  \n  \"Age\":23,  \n  \"AmountDue\":200.23,  \n  \"CustomerCode@odata.type\":\"Edm.Guid\",  \n  \"CustomerCode\":\"c9da6455-213d-42c9-9a79-3e9149a57833\",  \n  \"CustomerSince@odata.type\":\"Edm.DateTime\",  \n  \"CustomerSince\":\"2008-07-10T00:00:00\",  \n  \"IsActive\":true,  \n  \"NumOfOrders@odata.type\":\"Edm.Int64\",  \n  \"NumOfOrders\":\"255\",  \n  \"PartitionKey\":\"mypartitionkey\",  \n  \"RowKey\":\"myrowkey1\",  \n}"
+					"body": {
+						"value": "@pipeline().parameters.data_json",
+						"type": "Expression"
+					}
 				}
 			}
 		],
+		"parameters": {
+			"storage_account": {
+				"type": "string",
+				"defaultValue": "bucketeer"
+			},
+			"table_name": {
+				"type": "string",
+				"defaultValue": "PipelineStatus2"
+			},
+			"data_json": {
+				"type": "string",
+				"defaultValue": "{   \"Address\":\"Mountain View\",     \"Age\":23,     \"AmountDue\":200.23,     \"CustomerCode@odata.type\":\"Edm.Guid\",     \"CustomerCode\":\"c9da6455-213d-42c9-9a79-3e9149a57833\",     \"CustomerSince@odata.type\":\"Edm.DateTime\",     \"CustomerSince\":\"2008-07-10T00:00:00\",     \"IsActive\":true,     \"NumOfOrders@odata.type\":\"Edm.Int64\",     \"NumOfOrders\":\"255\",     \"PartitionKey\":\"mypartitionkey\",     \"RowKey\":\"myrowkey1\",   }"
+			}
+		},
 		"annotations": []
 	}
 }
