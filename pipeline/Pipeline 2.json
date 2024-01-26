@@ -58,7 +58,7 @@
 			"data_json": {
 				"type": "string",
 				"defaultValue": {
-					"Address": "Mountain View",
+					"Address": "Mountain Dew",
 					"Age": 23,
 					"AmountDue": 200.23,
 					"PartitionKey": "mypartitionkey",
