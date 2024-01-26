@@ -34,7 +34,8 @@
 						"x-ms-date": {
 							"value": "@utcnow()",
 							"type": "Expression"
-						}
+						},
+						"Accept": "application/json;odata=nometadata"
 					},
 					"body": {
 						"value": "@string(pipeline().parameters.data_json)",
