@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Web1",
+				"name": "InsertEntityToStorageTable",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
@@ -30,7 +30,6 @@
 							"value": "@length(string(pipeline().parameters.data_json))",
 							"type": "Expression"
 						},
-						"x-ms-version": "2022-11-02",
 						"x-ms-date": {
 							"value": "@utcnow()",
 							"type": "Expression"
@@ -54,7 +53,7 @@
 				"defaultValue": "PipelineStatus2"
 			},
 			"data_json": {
-				"type": "string",
+				"type": "object",
 				"defaultValue": {
 					"Address": "Mountain Dew",
 					"Age": 23,
